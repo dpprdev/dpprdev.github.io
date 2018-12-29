@@ -1,12 +1,15 @@
 /*
-   ____            _       ____  _                       
- | __ ) _ __ __ _(_)_ __ / ___|| |_ ___  _ __ _ __ ___  
- |  _ \| '__/ _` | | '_ \\___ \| __/ _ \| '__| '_ ` _ \ 
- | |_) | | | (_| | | | | |___) | || (_) | |  | | | | | |
- |____/|_|  \__,_|_|_| |_|____/ \__\___/|_|  |_| |_| |_|
-                                                              
+  _____                          ______       _                       _               
+ |  __ \                        |  ____|     | |                     (_)              
+ | |  | | ___ _ __ _ __  _   _  | |__   _ __ | |_ ___ _ __ _ __  _ __ _ ___  ___  ___ 
+ | |  | |/ _ \ '__| '_ \| | | | |  __| | '_ \| __/ _ \ '__| '_ \| '__| / __|/ _ \/ __|
+ | |__| |  __/ |  | |_) | |_| | | |____| | | | ||  __/ |  | |_) | |  | \__ \  __/\__ \
+ |_____/ \___|_|  | .__/ \__, | |______|_| |_|\__\___|_|  | .__/|_|  |_|___/\___||___/
+                  | |     __/ |                           | |                         
+                  |_|    |___/                            |_|                
+MIT License
+Github: https://github.com/ohlookitsderpy/derpyenterprises.org
 */
-
 const express           = require('express');
 const app               = express();
 const { join, extname } = require('path');
@@ -37,7 +40,7 @@ app.post('/upload', (req, res) => {
             req.files.file.mv('./uploads/' + newFileName + extname(req.files.file.name), (err) => {
                 if (err) return console.log(err);
             });
-            res.status(200).send('https://dppr.xyz/files/' + newFileName + extname(req.files.file.name));
+            res.status(200).send('https://derpyenterprises.org/files/' + newFileName + extname(req.files.file.name));
         }
     }
 });
@@ -46,6 +49,6 @@ app.get('*', (req, res) => {
     res.status(404).sendFile(join(__dirname, 'static/404.html'));
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
     console.log("hi");
 }); 
