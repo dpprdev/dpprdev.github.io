@@ -17,8 +17,9 @@ body {
 }
 
 img {
-    border-radius: 50%;
-}
+           border-radius: 50%;
+           border:5px solid #ff0000;
+        }
 
 p, a {
     color: white !important;
