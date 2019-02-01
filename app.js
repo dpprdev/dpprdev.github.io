@@ -30,7 +30,7 @@ app.post('/upload', (req, res) => {
             error: 'Invalid key!'
         }));
     } else {
-        if (!req.body.key === "") {
+        if (!req.body.key === "brainIsG") {
             res.status(401).send(JSON.stringify({
                 success: false,
                 error: 'Invalid key!'
@@ -40,13 +40,13 @@ app.post('/upload', (req, res) => {
             req.files.file.mv('./uploads/' + newFileName + extname(req.files.file.name), (err) => {
                 if (err) return console.log(err);
             });
-            res.status(200).send('https://derpyenterprises.org/files/' + newFileName + extname(req.files.file.name));
+            res.status(200).send('https://dppr.xyz/files/' + newFileName + extname(req.files.file.name));
         }
     }
 });
 
 app.get('*', (req, res) => {
-    res.status(404).sendFile(join(__dirname, './static/404.html'));
+    res.status(404).sendFile(join(__dirname, 'static/404.html'));
 });
 
 app.listen(80, () => {
